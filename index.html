@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>현재 날씨</h2>
+    <div>
+      <span>기온</span>
+      <span id="temp"></span>
+    </div>
+    <div>
+      <span>위치</span>
+      <span id="place"></span>
+    </div>
+    <div>
+      <span>풍속</span>
+      <span id="wind"></span>
+    </div>
+    <div>
+      <span>날씨 설명</span>
+      <span id="des"></span>
+    </div>
+    <img id="icon" />
+    <script>
+      let temp = document.querySelector("#temp");
+      let place = document.querySelector("#place");
+      let wind = document.querySelector("#wind");
+      let des = document.querySelector("#des");
+      let iconImg = document.querySelector("#icon");
+
+      let cityname = "seoul";
+      let apikey = "dbeaf2749f1524b74809e3272c69366a";
+
+      //비동기식 형식
+
+      weather = async () => {
+        let response = await fetch(
+          `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${apikey}&units=`
+        );
+        let data = await response.json();
+        console.log(data);
+
+        let temp2 = data.main.temp;
+        console.log(temp2);
+        temp.textContent = temp2;
+      };
+
+      weather();
+    </script>
+  </body>
+</html>
+
+<!--
+api :: 프로그램과 데이터베이스를 상호작용할 수 있도록 도와주는 역할을
+api라고 부름
+
+동기식 :: 순차적으로 작업을 수행하는것
+
+비동기식 :: 앞에서 작업이 끝나지 않았더라도 계속 요청을 받음
+시간이 걸지리 않는 것을 먼저 처리해줌
+시간이 걸리는 것은 나중에 처리해주는 방식
+api는 비동기식 방식
+
+async() => {
+변수 =  await fetch("주소값")
+변수2 = await 변수.json()
+}
+-->
