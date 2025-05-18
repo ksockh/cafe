@@ -6,52 +6,7 @@
     <title>Document</title>
   </head>
   <body>
-    네번째거
-    <p>충돌</p>
-    <h2>현재 날씨</h2>
-    <div>
-      <span>기온</span>
-      <span id="temp"></span>
-    </div>
-    <div>
-      <span>위치</span>
-      <span id="place"></span>
-    </div>
-    <div>
-      <span>풍속</span>
-      <span id="wind"></span>
-    </div>
-    <div>
-      <span>날씨 설명</span>
-      <span id="des"></span>
-    </div>
-    <img id="icon" />
-    <script>
-      let temp = document.querySelector("#temp");
-      let place = document.querySelector("#place");
-      let wind = document.querySelector("#wind");
-      let des = document.querySelector("#des");
-      let iconImg = document.querySelector("#icon");
-
-      let cityname = "seoul";
-      let apikey = "dbeaf2749f1524b74809e3272c69366a";
-
-      //비동기식 형식
-
-      weather = async () => {
-        let response = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${apikey}&units=`
-        );
-        let data = await response.json();
-        console.log(data);
-
-        let temp2 = data.main.temp;
-        console.log(temp2);
-        temp.textContent = temp2;
-      };
-
-      weather();
-    </script>
+    <p>dkdkfjdkjdkj</p>
   </body>
 </html>
 
